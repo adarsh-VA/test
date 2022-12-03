@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(61, 56, 83, 0.5);    
+            background-image: url("456.jpg");
+            background-size: cover;
+            background-blend-mode:soft-light ;       
+        }
+        #nav-blur{
+            backdrop-filter: blur(3px);
+            height: 53px;
+            z-index: 0;
+            position: fixed;
+            width: 100%;
+        }
+        nav{
+            background-color :rgba(182, 182, 182, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: auto;
+            position: sticky;
+            width: 100%;
+            top: 0%;
+        }
+        #brand-name{
+            color: black;
+            margin-left: 10px;
+            font-size: larger;
+            padding: 10px;
+        }
+        #navlist{
+            list-style-type: none;
+            display: flex;
+            margin-right: 10px;
+        }
+        #navlist li a{
+            text-decoration:none;
+            padding: 15px;
+            font-size: 20px;
+            color: black;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            display: inline-block;
+        }
+        #navlist li a:hover{
+            background-color: #1434A4;
+            color: rgb(220, 219, 219);
+        }
+
+        .card-container{
+            padding: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card{
+            background-color: rgba(230, 230, 230,0.8);
+            width: 280px;
+            margin: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover{
+            transform: scale(1.05);
+            transition: transform 0.3s;
+            box-shadow: 0 0px 10px 2px #1434A4 ;
+        }
+
+        #card-body{
+            margin-top: 10px;     
+        }
+        #card-footer{
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #card-footer>a{
+            text-decoration: none;
+            color: #1434A4 ;
+        }
+        #card-buttons a{
+            text-decoration: none;
+        }
+        #card-btn-edit{
+            color: #1434A4 ;
+        }
+        #card-btn-trash{
+            color: red;
+        }
+
+        @media only screen and (max-width:750px) {
+            body{
+                background-image: url("789.jpg");
+                background-size: contain;
+            }
+            #nav-blur{
+                height: 247px;
+            }
+            nav{
+                flex-direction: column;
+                height: auto;
+                text-align: center;
+            }
+            #navlist{
+                flex-direction: column;
+                width: 100%;
+                margin: 5px;
+            }
+            #navlist li a{
+                line-height: 30px;
+                width: 100%;
+                border-top: 0.1px solid black;
+            }
+            #brand-name{
+                margin: 0;
+                width:100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-blur"></div>
+    <nav>
+        <div id="brand-name">
+            <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></h1>
+        </div>
+        <ul id="navlist">
+            <li><a href="">Home</a></li>
+            <li><a href="">Actors</a></li>
+            <li><a href="">Producers</a></li>
+        </ul>
+    </nav>
+    <div class="card-container">
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="card-image">
+                <img src="avengers.jpg" alt="" width="100%" height="300px">
+            </div>
+            <div id="card-body">
+                <h2 style="margin-bottom: 10px;">Avengers</h2>
+                <p>Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+            </div>
+            <div id="card-footer">
+                <a href="">Explore &#8594</a>
+                <div id="card-buttons">
+                    <a href="" id="card-btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="" id="card-btn-trash"><i class="fa-regular fa-trash-can"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

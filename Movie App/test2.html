@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        body {
+  background-image: url("123.png");
+  background-size: cover;
+}
+
+#body {
+  height: 64px;
+  width: 100%;
+  padding-right: 16px;
+  margin-left: 20px;
+  margin-top: 150px;
+  transition: left 1.2s ease;
+  background: inherit;
+  /* filter */
+  
+  filter: blur(10px);
+
+}
+.nav { position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: rgba(0, 0, 0,0.2);
+}
+
+.nav ul {
+  list-style: none;
+  text-align: center;
+  padding-right: 32px;
+}
+
+.nav ul li {
+  display: inline-block;
+}
+
+.nav ul li a {
+  font-family: soleil, sans-serif;
+  font-weight: 100;
+  font-size: 25px;
+  color: rgb(230, 75, 75);
+  padding: 19px 16px;
+  transition: background 0.4s, text-shadow 0.4s;
+  cursor: pointer;
+  
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="nav">
+        <ul>
+          <li><a class="first">Home</a></li>
+          <li><a class="first">Portfolio</a></li>
+          <li><a>Blog</a></li>
+          <li><a class="last">Pricing</a></li>
+          <li><a class="last">Contact Me</a></li>
+        </ul>
+      </div>
+      <div id="body">
+      </div>
+</body>
+</html>
