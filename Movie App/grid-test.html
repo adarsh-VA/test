@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color: blueviolet;
+            padding: 15px;
+            text-align: center;
+        }
+        aside{
+            background-color: cadetblue;
+            float: left;
+            height: 100vh;
+        }
+        .container{
+            float: left;
+            padding : 20px;
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns: repeat(5,minmax(270px,1fr));
+            grid-auto-rows: 150px;
+        }
+        .box{
+            background-color :crimson;
+            padding: 10px;
+            text-align: center;
+        }
+        .box1{
+            grid-column: 1/3;
+            grid-row:  1/3;
+        }
+        .box4{
+            grid-row: 1/3;
+        }
+        footer{
+            background-color: coral;
+            clear: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <aside>
+        <h1>SideBar</h1>
+    </aside>
+    <main>
+        <div class="container">
+            <div class="box box1"><h3>box1</h3></div>
+            <div class="box box2"><h3>box2</h3></div>
+            <div class="box box3"><h3>box3</h3></div>
+            <div class="box box4"><h3>box4</h3></div>
+            <div class="box box5"><h3>box5</h3></div>
+            <div class="box box6"><h3>box6</h3></div>
+            <div class="box box7"><h3>box7</h3></div>
+            <div class="box box8"><h3>box8</h3></div>
+            <div class="box box9"><h3>box9</h3></div>
+        </div>
+    </main>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</body>
+</html>
