@@ -22,8 +22,16 @@
             background-attachment: fixed;  
             background-position: center;
         }
-        nav{
+        /* #nav-blur{
             backdrop-filter: blur(15px);
+            height: 53px;
+            z-index: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        } */
+        nav{
+            backdrop-filter: blur(10px);
             background-color :rgba(52, 52, 52, 0.1);
             display: flex;
             align-items: center;
@@ -32,7 +40,6 @@
             position: sticky;
             width: 100%;
             top: 0%;
-            z-index: 2;
         }
         #brand-name{
             color: black;
@@ -132,10 +139,6 @@
             #navlist{
                 display: flex;
             }
-            
-            #drop-close{
-                display: none;
-            }
         }
 
         @media only screen and (max-width:1024px)and (min-width:751px){
@@ -151,10 +154,6 @@
             }
             #navlist{
                 display: flex;
-            }
-            
-            #drop-close{
-                display: none;
             }
         }
         @media only screen and (max-width:750px) {
@@ -185,10 +184,14 @@
             }
 
             #drop-close{
-                display: none;
+                display: block;
                 margin-right: 12px;
                 font-size: 25px;
                 color: #1434A4;
+            }
+
+            #drop-close{
+                display: none;
             }
             #navlist{
                 flex-direction: column;
