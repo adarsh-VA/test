@@ -5,189 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Movie</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body{
-            background-color: rgba(61, 56, 83, 0.5);    
-            background-image: url("456.jpg");
-            background-size: cover;
-            background-blend-mode:soft-light ;  
-            background-attachment: fixed;  
-            background-position: center;
-        }
-        nav{
-            backdrop-filter: blur(15px);
-            background-color :rgba(52, 52, 52, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: auto;
-            position: sticky;
-            width: 100%;
-            top: 0%;
-            z-index: 2;
-        }
-        #brand-name{
-            color: black;
-            margin-left: 10px;
-            font-size: larger;
-            padding: 10px;
-        }
-        #navlist{
-            list-style-type: none;
-            display: none;
-            margin-right: 10px;
-        }
-        #navlist li a{
-            text-decoration:none;
-            padding: 15px;
-            font-size: 20px;
-            color: black;
-            transition: background-color 0.3s;
-            font-weight: bold;
-            display: inline-block;
-        }
-        #navlist li a:hover{
-            background-color: #1434A4;
-            color: rgb(220, 219, 219);
-        }
+    <link rel="stylesheet" href="css/add.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-        .form-container{
-            backdrop-filter: blur(10px);
-            margin: 20px auto 20px auto;
-            width: 85%;
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 10px;
-            padding: 25px;
-        }
+    <script src="js/jquery-3.61.js"></script>
 
-        .form-top{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .form-body{
-            padding: 10px;
-        }
-
-        #input{
-            margin: 5px;
-        }
-
-        #input input,textarea {
-            width: 100%;
-            padding: 5px;
-            border: 0.2px solid #99a0ba;
-            border-radius: 7px;
-        }
-
-        .btn{
-            background-color: #1434A4;
-            color: rgb(220, 219, 219);
-            padding: 5px;
-            border: none;
-            text-decoration: none;
-            align-items: center;
-            box-shadow: 0px 0px 2px 3px #1434A4;
-            border-radius: 5px;
-        }
-        .btn:hover{
-            transform: scale(1.1);
-            transition: all 0.2s;
-        }
-        .d-2{
-            display: flex;
-            gap: 10px;
-        }
-        .d-2>input{
-            flex: 1;
-        }
-
-        .submit-btn{
-            margin-top: 10px;
-        }
-
-        @media only screen and (min-width:1025px) {
-            #dash{
-                display: none;
-            }
-            #navlist{
-                display: flex;
-            }
-            
-            #drop-close{
-                display: none;
-            }
-        }
-
-        @media only screen and (max-width:1024px)and (min-width:751px){
-            .card-container{
-                margin-left: 0px;
-                margin-right: 0px;
-            }
-            .addMovie-btn{
-                margin-right: 5%;
-            }
-            #dash{
-                display: none;
-            }
-            #navlist{
-                display: flex;
-            }
-            
-            #drop-close{
-                display: none;
-            }
-        }
-
-        @media only screen and (max-width:750px) {
-            body{
-                background-image: url("789.jpg");
-                background-size: contain;
-            }
-            #nav-blur{
-                height: 247px;
-            }
-            nav{
-                flex-direction: column;
-                height: auto;
-                text-align: center;
-            }
-            #navlist{
-                flex-direction: column;
-                width: 100%;
-                margin: 5px;
-            }
-            #navlist li a{
-                line-height: 30px;
-                width: 100%;
-                border-top: 0.1px solid black;
-            }
-            #brand-name{
-                margin: 0;
-                width:100%;
-            }
-            .form-top #form-title{
-                font-size: 20px;
-            }
-            .d-2{
-                flex-direction: column;
-            }
-            .d-2 a{
-                width: 100%;
-                text-align: center;
-                margin:10px 0px;
-            }
-            .submit-btn{
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -268,21 +92,23 @@
                     <input type="submit" value="Submit" class="submit-btn btn">
                 </form>
         </div>
-
-    <script>
-        $("#dash").click(()=>{
-            console.log("clicked");
-            $("#navlist").toggle("0.3s","linear");
-            $("#dash").css("display","none");
-            $("#drop-close").css("display","inline-block");
-        });
-
-        $("#drop-close").click(()=>{
-            console.log("clicked");
-            $("#navlist").toggle("0.3s","linear");
-            $("#dash").css("display","block");;
-            $("#drop-close").css("display","none");
-        });
-    </script>
+        <footer>
+            <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span> &copy;2022</h1>
+        </footer>
+        <script>
+            $("#dash").click(()=>{
+                console.log("clicked");
+                $("#navlist").toggle("0.3s","linear");
+                $("#dash").css("display","none");
+                $("#drop-close").css("display","inline-block");
+            });
+    
+            $("#drop-close").click(()=>{
+                console.log("clicked");
+                $("#navlist").toggle("0.3s","linear");
+                $("#dash").css("display","block");;
+                $("#drop-close").css("display","none");
+            });
+        </script>
 </body>
 </html>
