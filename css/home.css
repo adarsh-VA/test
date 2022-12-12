@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(61, 56, 83, 0.5); 
+    background-image: url("../imgs/456.jpg");
+    background-size: cover;
+    background-blend-mode:soft-light ;  
+    background-attachment: fixed;  
+    background-position: center;
+}
+
+
+.card-container{
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(310px,1fr));
+    justify-items:center;
+    margin-left: 100px;
+    margin-right: 100px;
+    clear: both;
+}
+
+.card{
+    background-color: rgb(227, 227, 227);
+    width: 280px;
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    box-shadow: 0 0px 10px 2px #1434A4 ;
+}
+
+#card-body{
+    margin-top: 10px;     
+}
+#card-footer{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+#card-footer>a{
+    text-decoration: none;
+    color: #1434A4 ;
+}
+#card-buttons a{
+    text-decoration: none;
+}
+#card-btn-edit{
+    color: #1434A4 ;
+}
+#card-btn-trash{
+    color: red;
+}
+.addMovie-btn{
+    float: right;
+    margin-top: 30px;
+    margin-right: 140px;
+}
+.addMovie-btn a{
+    text-decoration: none;
+    background-color: #1434A4;
+    color: rgb(220, 219, 219);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 1px #1434A4;
+    
+}
+
+.addMovie-btn:hover{
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+@media only screen and (min-width:1025px) {
+}
+
+@media only screen and (max-width:1024px)and (min-width:751px){
+    .card-container{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .addMovie-btn{
+        margin-right: 5%;
+    }
+}
+@media only screen and (max-width:750px) {
+    body{
+        background-image: url("../imgs/789.jpg");
+        background-size: contain;
+    }
+    .card-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .addMovie-btn {
+        float: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width:355px) {
+    .card-container{
+        margin: 0px;
+        padding: 1px;
+    }
+}
