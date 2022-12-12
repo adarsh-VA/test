@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-
     <script src="js/jquery-3.61.js"></script>
 
 </head>
@@ -17,7 +16,7 @@
     <nav>
         <div class="logo-dash">
             <div id="brand-name">
-                <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></h1>
+                <h1><span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></h1>
             </div>
             <div>
                 <i class="fa-solid fa-bars" id="dash"></i>
@@ -95,20 +94,7 @@
         <footer>
             <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span> &copy;2022</h1>
         </footer>
-        <script>
-            $("#dash").click(()=>{
-                console.log("clicked");
-                $("#navlist").toggle("0.3s","linear");
-                $("#dash").css("display","none");
-                $("#drop-close").css("display","inline-block");
-            });
-    
-            $("#drop-close").click(()=>{
-                console.log("clicked");
-                $("#navlist").toggle("0.3s","linear");
-                $("#dash").css("display","block");;
-                $("#drop-close").css("display","none");
-            });
-        </script>
+
+        <script src="js/menu-slide.js"></script>
 </body>
 </html>
