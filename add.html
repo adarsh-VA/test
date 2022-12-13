@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,12 +12,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="js/jquery-3.61.js"></script>
 
+    <style>
+        footer{
+            backdrop-filter: blur(10px);
+            background-color :rgba(236, 236, 236, 0.536);
+            text-align: center;
+            align-items: center;
+            padding: 30px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer h1 span{
+            font-size: 50px;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <div class="logo-dash">
             <div id="brand-name">
-                <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></h1>
+                <h1><span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></h1>
             </div>
             <div>
                 <i class="fa-solid fa-bars" id="dash"></i>
@@ -30,6 +47,8 @@
             <li><a href="">Producers</a></li>
         </ul>
     </nav>
+    <main>
+
         <div class="form-container">
             <div class="form-top">
                 <h1 id="form-title">Enter Movie Details</h1>
@@ -37,64 +56,66 @@
             </div>
             <br>
             <hr>
-                <form action="" class="form-body">
-                    <div id="label">
-                        <label for="">Movie Name</label>
-                    </div>
-                    <div id="input">
-                        <input type="text" name="" id="">
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Year Of Release</label>
-                    </div>
-                    <div id="input">
-                        <input type="number" name="" id="">
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Actors</label>
-                    </div>
-                    <div id="input" class="d-2">
-                        <input type="text" name="" id="">
-                        <a href="" class="btn">Add Actor</a> 
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Producer</label>
-                    </div>
-                    <div id="input" class="d-2">
-                        <input type="text" name="" id="">
-                        <a href="" class="btn">Add Producer</a> 
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Genre</label>
-                    </div>
-                    <div id="input">
-                        <input type="text" name="" id="">
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Plot</label>
-                    </div>
-                    <div id="input">
-                        <textarea name="" id="" cols="30" rows="4"></textarea>
-                    </div>
-    
-                    <div id="label">
-                        <label for="">Poster</label>
-                    </div>
-                    <div id="input">
-                        <input type="file" name="" id="">
-                    </div>
-                    <input type="submit" value="Submit" class="submit-btn btn">
-                </form>
-        </div>
-        <footer>
-            <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span> &copy;2022</h1>
-        </footer>
+            <form action="" class="form-body">
+                <div id="label">
+                    <label for="">Movie Name</label>
+                </div>
+                <div id="input">
+                    <input type="text" name="" id="">
+                </div>
 
-        <script src="js/menu-slide.js"></script>
+                <div id="label">
+                    <label for="">Year Of Release</label>
+                </div>
+                <div id="input">
+                    <input type="number" name="" id="">
+                </div>
+
+                <div id="label">
+                    <label for="">Actors</label>
+                </div>
+                <div id="input" class="d-2">
+                    <input type="text" name="" id="">
+                    <a href="" class="btn">Add Actor</a>
+                </div>
+
+                <div id="label">
+                    <label for="">Producer</label>
+                </div>
+                <div id="input" class="d-2">
+                    <input type="text" name="" id="">
+                    <a href="" class="btn">Add Producer</a>
+                </div>
+
+                <div id="label">
+                    <label for="">Genre</label>
+                </div>
+                <div id="input">
+                    <input type="text" name="" id="">
+                </div>
+
+                <div id="label">
+                    <label for="">Plot</label>
+                </div>
+                <div id="input">
+                    <textarea name="" id="" cols="30" rows="4"></textarea>
+                </div>
+
+                <div id="label">
+                    <label for="">Poster</label>
+                </div>
+                <div id="input">
+                    <input type="file" name="" id="">
+                </div>
+                <input type="submit" value="Submit" class="submit-btn btn">
+            </form>
+        </div>
+    </main>
+    <footer>
+        <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span> &copy;2022</h1>
+    </footer>
+
+    <script src="js/menu-slide.js"></script>
 </body>
+
 </html>
