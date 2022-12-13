@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/fx.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script>
+    <script src="js/jquery-3.61.js"></script>
+    <script src="js/popper.js"></script>
+</head>
+<body id="body-c">
+    <nav class="navbar navbar-expand-sm" id="navbar-c">
+        <a href="" class="navbar-brand text-dark font-weight-bold p-0" id="nav-brand-c"><span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></a>
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto"  id="navlist-c">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Actors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Producers</a>
+          </li>
+        </ul>
+    </nav>
+    <main id="container-c" >
+        <div class="row mt-4">
+            <a href="" class="btn offset-11 mb-4" id="add-movie-c">Add Movie</a>
+        </div>
+        
+        <div class="row justify-content-center" id="card-container-c">
+           
+        </div>
+            
+        </div>
+    </main>
+    <script>
+        var images = ["avengers","black-widow","dune","godzilla","iron-man","john-wick","joker","jurassic-park","lord-of-the-rings","mad-max","star-war","suicide-squad","terminator","warcraft"];
+
+        for(var image of images){
+            $("#card-container-c").append(
+                `<div class="col-xl-2 col-lg-3 col-md-6 mb-4">
+                <div class="card p-2 " style="width:280px">
+                    <img class="card-img-top" src="imgs/avengers.jpg" alt="Card image" height="300px">
+                    <div class="card-body p-2">
+                        <h4 class="card-title">Avengers</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+                        <a href="" style="color: #1434A4;">Explore &#8594</a>
+                        <div class="d-inline-block float-right">
+                            <a href="" id="card-btn-edit" style="color: #1434A4;"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="" id="card-btn-trash" style="color: red;"><i class="fa-regular fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+            );
+        }
+    </script>
+</body>
+</html>
