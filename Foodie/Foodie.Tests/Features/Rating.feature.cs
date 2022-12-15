@@ -90,6 +90,8 @@ namespace Foodie.Tests.Features
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/1/users/15/ratings", "404", "User Not Found!", new string[] {
                 "InvalidData"})]
+        [Xunit.InlineDataAttribute("/restaurants/0/users/1/ratings", "400", "Id should not be Zero", new string[] {
+                "InvalidData"})]
         public virtual void GetRatings(string request, string statusCode, string responseBody, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -149,6 +151,8 @@ this.ScenarioInitialize(scenarioInfo);
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/16/ratings", "{\"Rating\":5.0}", "Dish Not Found!", "404", new string[] {
                 "InvalidData"})]
+        [Xunit.InlineDataAttribute("/restaurants/0/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "Id should not be Zero", "400", new string[] {
+                "InvalidData"})]
         public virtual void CreateRating(string request, string requestBody, string responseBody, string responseCode, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -158,7 +162,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("responseBody", responseBody);
             argumentsOfScenario.Add("responseCode", responseCode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Rating", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 20
+#line 21
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -178,16 +182,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 21
+#line 22
  testRunner.Given("I am a client", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 22
+#line 23
  testRunner.When(string.Format("I make POST Request \'{0}\' with following data \'{1}\'", request, requestBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 23
+#line 24
  testRunner.Then(string.Format("response code must be \'{0}\'", responseCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 24
+#line 25
  testRunner.And(string.Format("response data must look like \'{0}\'", responseBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

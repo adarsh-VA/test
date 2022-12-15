@@ -16,6 +16,7 @@ Scenario Outline: Get Ratings
 	| request                         | statusCode | responseBody          |
 	| /restaurants/19/users/1/ratings | 404        | Restaurant Not Found! |
 	| /restaurants/1/users/15/ratings | 404        | User Not Found!       |
+	| /restaurants/0/users/1/ratings  | 400        | Id should not be Zero |
 
 Scenario Outline: Create Rating
 	Given I am a client
@@ -34,3 +35,4 @@ Scenario Outline: Create Rating
 	| /restaurants/10/Users/1/Dishes/1/ratings | {"Rating":5.0} | Restaurant Not Found!      | 404          |
 	| /restaurants/1/Users/14/Dishes/1/ratings | {"Rating":5.0} | User Not Found!            | 404          |
 	| /restaurants/1/Users/1/Dishes/16/ratings | {"Rating":5.0} | Dish Not Found!            | 404          |
+	| /restaurants/0/Users/1/Dishes/1/ratings  | {"Rating":5.0} | Id should not be Zero      | 400          |
