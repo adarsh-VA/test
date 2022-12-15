@@ -5,5 +5,6 @@ namespace Foodie.Repositories.Interfaces
     public interface IRestaurantRepository
     {
         public Restaurant GetById(int id);
+        public int Create(Restaurant restaurant, string DishIds);
     }
 }

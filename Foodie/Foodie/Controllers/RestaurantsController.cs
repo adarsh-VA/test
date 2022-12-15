@@ -1,4 +1,5 @@
-﻿using Foodie.Services.Interfaces;
+﻿using Foodie.Models.RequestModels;
+using Foodie.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,16 @@ namespace Foodie.Controllers
         }
 
         [HttpGet("{restaurantId}")]
-        public IActionResult GetUserDishRatings([FromRoute] int restaurantId)
+        public IActionResult GetById([FromRoute] int restaurantId)
         {
             return Ok(_restaurantService.Get(restaurantId));
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] RestaurantRequest restaurantRequest)
+        {
+            var id = _restaurantService.Create(restaurantRequest);
+            return CreatedAtAction("GetById", new { restaurantId = id }, id);
         }
     }
 }

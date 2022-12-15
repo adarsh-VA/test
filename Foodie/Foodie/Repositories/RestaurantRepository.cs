@@ -18,5 +18,17 @@ namespace Foodie.Repositories
                          WHERE Id = @Id;";
             return Get(query, new { Id = id });
         }
+
+        public int Create(Restaurant restaurant,string DishIds) 
+        {
+            var procedure = "[usp_InsertRestaurant]";
+            var values = new
+            {
+                Name = restaurant.Name,
+                DishIds = DishIds
+            };
+
+            return Add(procedure, values);
+        }
     }
 }

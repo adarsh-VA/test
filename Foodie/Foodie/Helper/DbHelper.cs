@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Foodie.Models.ResponseModels;
 using Microsoft.Data.SqlClient;
 
 namespace Foodie.Helper
@@ -39,6 +40,27 @@ namespace Foodie.Helper
             using (var connection = new SqlConnection(_connectionString))
             {
                 return connection.Query<int>(restaurantQuery, new { Id = restaurantId }).ToList();
+            }
+        }
+
+        public List<RestaurantDishResponse> GetAllDishByRestaurant(int restaurantId)
+        {
+            var restaurantQuery = @"SELECT D.Id
+                                    	,D.Name
+                                    	,(
+                                    		SELECT AVG(Rating)
+                                    		FROM Users_Restaurants_Dishes
+                                    		WHERE DishId = D.Id
+                                    			AND RestaurantId = @RestaurantId
+                                    		GROUP BY DishId
+                                    		) AS AvgRating
+                                    FROM Dishes D
+                                    JOIN Restaurants_Dishes RD ON RD.DishId = D.Id
+                                    WHERE RD.RestaurantId = @RestaurantId;";
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Query<RestaurantDishResponse>(restaurantQuery, new { RestaurantId = restaurantId }).ToList();
             }
         }
     }

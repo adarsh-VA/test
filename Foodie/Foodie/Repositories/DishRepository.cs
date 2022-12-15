@@ -1,6 +1,7 @@
 ﻿using Foodie.Models.DbModels;
 using Foodie.Repositories.Interfaces;
 using Foodie.Repository;
+using System.Runtime.InteropServices;
 
 namespace Foodie.Repositories
 {
@@ -17,6 +18,11 @@ namespace Foodie.Repositories
                          FROM [Foodie].[dbo].[Dishes] WITH (NOLOCK)
                          WHERE Id = @Id;";
             return Get(query, new { Id = id });
+        }
+
+        public int Create(Dish dish)
+        {
+            return Add("[usp_AddDish]", new { Name = dish.Name });
         }
     }
 }

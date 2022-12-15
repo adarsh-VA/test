@@ -29,6 +29,11 @@ namespace Foodie
             
             services.TryAddScoped<IRestaurantService, RestaurantService>();
             services.TryAddScoped<IRestaurantRepository, RestaurantRepository>();
+            services.TryAddScoped<IRatingService, RatingService>();
+            services.TryAddScoped<IRatingRepository, RatingRepository>();
+            services.TryAddScoped<IUserRepository, UserRepository>();
+            services.TryAddScoped<IDishService, DishService>();
+            services.TryAddScoped<IDishRepository, DishRepository>();
             services.TryAddScoped<IDbHelper, DbHelper>();
             services.AddTransient<CustomExceptionHandler>();
         }

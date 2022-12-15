@@ -6,7 +6,7 @@ namespace Foodie.Models.ResponseModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Dish> Dishes { get; set;}
+        public List<RestaurantDishResponse> Dishes { get; set;}
         public float Rating { get; set; }
     }
 }
