@@ -8,34 +8,47 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="css/fx.css">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <script src="js/bootstrap.js"></script>
     <script src="js/jquery-3.61.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="js/popper.js"></script>
+
 </head>
 <body id="body-c">
-    <nav class="navbar navbar-expand-sm" id="navbar-c">
+    <nav class="navbar navbar-expand-sm navbar-light" id="navbar-c">
         <a href="" class="navbar-brand text-dark font-weight-bold p-0" id="nav-brand-c"><span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span></a>
-        <!-- Links -->
-        <ul class="navbar-nav ml-auto"  id="navlist-c">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Actors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Producers</a>
-          </li>
-        </ul>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#toggleMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMenu">   
+            <ul class="navbar-nav ml-auto text-center"  id="navlist-c">
+              <li class="nav-item ">
+                <a class="nav-link" href="#">Actors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Producers</a>
+              </li>
+            </ul>
+        </div>
     </nav>
     
     <div class="container-fluid mt-4 d-flex">
-        <a href="" class="btn ml-sm-auto" id="add-movie-c">Add Movie</a>
+        <a href="" class="btn m-auto" id="add-movie-c">Add Movie</a>
     </div>
 
-    <div class="container-fluid mt-4 row justify-content-center" id="card-container-c">
+    <div class="container-fluid mt-4">
+        <div class="row justify-content-center ml-lg-5 mr-lg-5" id="card-container-c">
+        </div>
     </div>
 
-    <footer>
+    <footer class="page-footer font-small blue">
 
-    </footer>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 bg-light">
+            <h1> <span style="color: #1434A4 ;">F</span>ilm<span style="color: #1434A4 ;">X</span> &copy;2022</h1>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
     <script>
         var images = ["avengers","black-widow","dune","godzilla","iron-man","john-wick","joker","jurassic-park","lord-of-the-rings","mad-max","star-war","suicide-squad","terminator","warcraft"];
 

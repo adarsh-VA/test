@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodie", "Foodie.csproj", "{DFD72F1C-48E3-4F8D-92A1-0C6118EF95FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodie.Tests", "..\Foodie.Tests\Foodie.Tests.csproj", "{4BE5A1B6-1D72-4EFA-9651-54B3716D96F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFD72F1C-48E3-4F8D-92A1-0C6118EF95FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFD72F1C-48E3-4F8D-92A1-0C6118EF95FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFD72F1C-48E3-4F8D-92A1-0C6118EF95FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFD72F1C-48E3-4F8D-92A1-0C6118EF95FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BE5A1B6-1D72-4EFA-9651-54B3716D96F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE5A1B6-1D72-4EFA-9651-54B3716D96F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE5A1B6-1D72-4EFA-9651-54B3716D96F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE5A1B6-1D72-4EFA-9651-54B3716D96F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3812EF2-9FAE-41CE-AEED-978B19FA9399}
+	EndGlobalSection
+EndGlobal

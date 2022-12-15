@@ -30,6 +30,10 @@
     font-size:25px;
 }
 
+.nav-link{
+    font-size: 20px;
+}
+
 #add-movie-c{
     background-color: #1434A4;
     color: rgb(220, 219, 219);
@@ -47,19 +51,20 @@
 .card{
     margin: auto;
 }
-
-#card-container-c{
-    margin: auto;
+.card:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    box-shadow: 0 0px 10px 2px #1434A4 ;
 }
 
 main{
     margin:auto 150px;
 }
 
-@media only screen and (max-width:350px) {
+/* @media only screen and (max-width:350px) {
     #card-container-c{
         margin: 0;
         padding: 0;
     }
     
-}
+} */
