@@ -16,6 +16,12 @@ namespace Foodie.Controllers
             _dishService = dishService;
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_dishService.GetAll());
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {

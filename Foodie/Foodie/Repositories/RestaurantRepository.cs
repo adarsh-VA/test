@@ -8,8 +8,17 @@ namespace Foodie.Repositories
     {
         public RestaurantRepository(IConfiguration configuration) : base(configuration)
         {
-
         }
+
+        public List<Restaurant> GetAll()
+        {
+            var query = @"SELECT [Id]
+                              ,[Name]
+                          FROM [Foodie].[dbo].[Restaurants] WITH (NOLOCK)";
+
+            return GetAll(query);
+        }
+
         public Restaurant GetById(int id)
         {
             var query = @"SELECT [Id]

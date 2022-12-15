@@ -15,6 +15,12 @@ namespace Foodie.Controllers
             _restaurantService= restaurantService;
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_restaurantService.GetAll());
+        }
+
         [HttpGet("{restaurantId}")]
         public IActionResult GetById([FromRoute] int restaurantId)
         {

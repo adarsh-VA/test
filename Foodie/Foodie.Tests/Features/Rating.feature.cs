@@ -143,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
                 "ValidData"})]
         [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\":6.0}", "Rating Should be in 1 to 5", "400", new string[] {
                 "InvalidData"})]
-        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\": }", "Rating Should be Empty!", "400", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\": 0}", "Rating Should Not be 0", "400", new string[] {
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/10/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "Restaurant Not Found!", "404", new string[] {
                 "InvalidData"})]

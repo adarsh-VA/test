@@ -14,8 +14,27 @@ namespace Foodie.Services
             _dishRepository= dishRepository;
         }
 
+
+        public List<DishResponse> GetAll()
+        {
+            var dishes = _dishRepository.GetAll();
+            var response = new List<DishResponse>();
+
+            foreach (var dish in dishes)
+            {
+                response.Add(
+                    new DishResponse
+                    {
+                        Id= dish.Id,
+                        Name= dish.Name
+                    }
+                    );
+            }
+            return response;
+        }
         public DishResponse Get(int id)
         {
+            if(id == 0) { throw new ArgumentException("Id should not be zero"); }
             var dish = _dishRepository.GetById(id);
 
             if (dish == null) { throw new KeyNotFoundException("Dish Not Found!"); }
@@ -29,7 +48,7 @@ namespace Foodie.Services
 
         public int Create(DishRequest dishRequest)
         {
-            if (dishRequest.Name == "")
+            if (string.IsNullOrWhiteSpace(dishRequest.Name))
                 throw new ArgumentException("Name Should Not be Empty!");
             var dish = new Dish
             {

@@ -11,6 +11,14 @@ namespace Foodie.Repositories
         {
         }
 
+        public List<Dish> GetAll()
+        {
+            var query = @"SELECT [Id]
+                              ,[Name]
+                          FROM [Foodie].[dbo].[Dishes] WITH (NOLOCK)";
+
+            return GetAll(query);
+        }
         public Dish GetById(int id)
         {
             var query = @"SELECT [Id]

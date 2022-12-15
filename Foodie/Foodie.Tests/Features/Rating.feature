@@ -31,7 +31,7 @@ Scenario Outline: Create Rating
 	Examples: 
 	| request                                  | requestBody    | responseBody               | responseCode |
 	| /restaurants/1/Users/1/Dishes/1/ratings  | {"Rating":6.0} | Rating Should be in 1 to 5 | 400          |
-	| /restaurants/1/Users/1/Dishes/1/ratings  | {"Rating": }   | Rating Should be Empty!    | 400          |
+	| /restaurants/1/Users/1/Dishes/1/ratings  | {"Rating": 0}  | Rating Should Not be 0     | 400          |
 	| /restaurants/10/Users/1/Dishes/1/ratings | {"Rating":5.0} | Restaurant Not Found!      | 404          |
 	| /restaurants/1/Users/14/Dishes/1/ratings | {"Rating":5.0} | User Not Found!            | 404          |
 	| /restaurants/1/Users/1/Dishes/16/ratings | {"Rating":5.0} | Dish Not Found!            | 404          |

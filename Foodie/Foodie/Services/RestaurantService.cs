@@ -22,7 +22,7 @@ namespace Foodie.Services
         public List<int> validateDishes(string dishIds)
         {
             if (dishIds == "")
-                throw new ArgumentException("ActorsId should not be Empty");
+                throw new ArgumentException("DishIds Should Not be Empty!");
 
             int dId;
             var MappedDishIds = new List<int>();
@@ -35,13 +35,33 @@ namespace Foodie.Services
                 }
                 catch (System.Exception)
                 {
-                    throw new ArgumentException("Actor Id Format Error!");
+                    throw new ArgumentException("Dish Id Format Error!");
                 }
                 if (_dishRepository.GetById(dId) == null)
-                    throw new KeyNotFoundException("Actor Not Found!");
+                    throw new KeyNotFoundException("Dish Not Found!");
                 MappedDishIds.Add(dId);
             }
             return MappedDishIds;
+        }
+
+        public List<RestaurantResponse> GetAll()
+        {
+            var restaurents = _restaurantRepository.GetAll();
+            var response = new List<RestaurantResponse>();
+
+            foreach (var restaurant in restaurents)
+            {
+                response.Add(
+                    new RestaurantResponse
+                    {
+                        Id = restaurant.Id,
+                        Name = restaurant.Name,
+                        Rating = _dbHelper.GetRestaurantRatingById(restaurant.Id),
+                        Dishes = _dbHelper.GetAllDishByRestaurant(restaurant.Id)
+                    }
+                    );
+            }
+            return response;
         }
 
         public RestaurantResponse Get(int id)
@@ -64,6 +84,8 @@ namespace Foodie.Services
 
         public int Create(RestaurantRequest restaurantRequest)
         {
+            if (string.IsNullOrWhiteSpace(restaurantRequest.Name)) { throw new ArgumentException("Name Should Not be Empty!"); }
+
             validateDishes(restaurantRequest.DishIds);
 
             var restaurant = new Restaurant
@@ -71,7 +93,6 @@ namespace Foodie.Services
                 Name = restaurantRequest.Name
             };
 
-            
             return _restaurantRepository.Create(restaurant, restaurantRequest.DishIds);
         }
     }

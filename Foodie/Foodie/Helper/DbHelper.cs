@@ -63,5 +63,21 @@ namespace Foodie.Helper
                 return connection.Query<RestaurantDishResponse>(restaurantQuery, new { RestaurantId = restaurantId }).ToList();
             }
         }
+
+        public float GetDishRatingOfUser(int userId,int restaurantId,int dishId)
+        {
+            var query = @"SELECT Rating
+                          FROM Users_Restaurants_Dishes
+                          WHERE UserId = @UserId
+                          	AND RestaurantId = @RestaurantId
+                          	AND DishId = @DishId;";
+            float result = 0;
+
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                result = connection.ExecuteScalar<int>(query, new {UserId = userId,RestaurantId = restaurantId,DishId = dishId});
+            }
+            return result;
+        }
     }
 }

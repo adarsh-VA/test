@@ -118,29 +118,32 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("response code must be \'200\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 9
- testRunner.And("response data must look like \'[{\"id\":1,\"name\":\"Veg Biryani\"},{\"id\":2,\"name\":\"Chic" +
-                        "ken Curry\"},{\"id\":3,\"name\":\"Roti\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("response data must look like \'[{\"id\":1,\"name\":\"Samosa\"},{\"id\":2,\"name\":\"Curd\"},{\"" +
+                        "id\":3,\"name\":\"Chicken\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableTheoryAttribute(DisplayName="Create Dish")]
+        [Xunit.SkippableTheoryAttribute(DisplayName="Get Dish By Id")]
         [Xunit.TraitAttribute("FeatureTitle", "Dish Resource")]
-        [Xunit.TraitAttribute("Description", "Create Dish")]
-        [Xunit.InlineDataAttribute("/dishes", "{\"name\":\"Curd\"}", "4", "201", new string[] {
+        [Xunit.TraitAttribute("Description", "Get Dish By Id")]
+        [Xunit.InlineDataAttribute("/dishes/1", "200", "{\"id\":1,\"name\":\"Samosa\"}", new string[] {
                 "ValidData"})]
-        [Xunit.InlineDataAttribute("/dishes", "{\"name\":\"\",}", "Name Should Not be Empty!", "400", new string[] {
+        [Xunit.InlineDataAttribute("/dishes/24", "404", "Dish Not Found!", new string[] {
                 "InvalidData"})]
-        public virtual void CreateDish(string request, string requestBody, string responseBody, string responseCode, string[] exampleTags)
+        [Xunit.InlineDataAttribute("/dishes/6y", "400", "{  \"id\": [    \"The value \'6y\' is not valid.\"  ]}", new string[] {
+                "InvalidData"})]
+        [Xunit.InlineDataAttribute("/dishes/0", "400", "Id should not be zero", new string[] {
+                "InvalidData"})]
+        public virtual void GetDishById(string request, string statusCode, string responseBody, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("request", request);
-            argumentsOfScenario.Add("requestBody", requestBody);
+            argumentsOfScenario.Add("statusCode", statusCode);
             argumentsOfScenario.Add("responseBody", responseBody);
-            argumentsOfScenario.Add("responseCode", responseCode);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Dish", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Dish By Id", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 11
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -165,12 +168,64 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I am a client", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 13
- testRunner.When(string.Format("I make POST Request \'{0}\' with following data \'{1}\'", request, requestBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I make GET Request \'{0}\'", request), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
- testRunner.Then(string.Format("response code must be \'{0}\'", responseCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("response code must be \'{0}\'", statusCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
+ testRunner.And(string.Format("response data must look like \'{0}\'", responseBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableTheoryAttribute(DisplayName="Create Dish")]
+        [Xunit.TraitAttribute("FeatureTitle", "Dish Resource")]
+        [Xunit.TraitAttribute("Description", "Create Dish")]
+        [Xunit.InlineDataAttribute("/dishes", "{\"name\":\"Curd\"}", "4", "201", new string[] {
+                "ValidData"})]
+        [Xunit.InlineDataAttribute("/dishes", "{\"name\":\"\"}", "Name Should Not be Empty!", "400", new string[] {
+                "InvalidData"})]
+        public virtual void CreateDish(string request, string requestBody, string responseBody, string responseCode, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("request", request);
+            argumentsOfScenario.Add("requestBody", requestBody);
+            argumentsOfScenario.Add("responseBody", responseBody);
+            argumentsOfScenario.Add("responseCode", responseCode);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Dish", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 27
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 28
+ testRunner.Given("I am a client", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 29
+ testRunner.When(string.Format("I make POST Request \'{0}\' with following data \'{1}\'", request, requestBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 30
+ testRunner.Then(string.Format("response code must be \'{0}\'", responseCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 31
  testRunner.And(string.Format("response data must look like \'{0}\'", responseBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

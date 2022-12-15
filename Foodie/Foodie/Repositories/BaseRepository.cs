@@ -49,15 +49,8 @@ namespace Foodie
             }
         }
         
-        public void Update(string procedure,object values)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Execute(procedure, values, commandType: CommandType.StoredProcedure);
-            }
-        }
 
-        public void Delete(string query, object values) 
+        public void ExecuteQuery(string query, object values) 
         {
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -65,20 +58,5 @@ namespace Foodie
             }
         }
 
-        public void DeleteProcedure(string procedure,object values)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                connection.Execute(procedure, values, commandType: CommandType.StoredProcedure);
-            }
-        }
-
-        public List<int> GetIds(string query,object values)
-        {
-            using (var connection = new SqlConnection(_connectionString))
-            {
-                return connection.Query<int>(query,values).ToList<int>();
-            }
-        }
     }
 }

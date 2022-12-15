@@ -1,4 +1,5 @@
-﻿using Foodie.Services.Interfaces;
+﻿using Foodie.Models.RequestModels;
+using Foodie.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,10 +22,10 @@ namespace Foodie.Controllers
         }
 
         [HttpPost("{restaurantId}/users/{userId}/dishes/{dishId}/ratings")]
-        public IActionResult CreateUserDishRatings([FromRoute] int restaurantId, [FromRoute] int userId, [FromRoute]int dishId, [FromBody] float rating)
+        public IActionResult CreateUserDishRatings([FromRoute] int restaurantId, [FromRoute] int userId, [FromRoute]int dishId, [FromBody] RatingRequest ratingRequest)
         {
-            _ratingService.create(restaurantId, userId, dishId, rating);
-            return Ok("You Rated "+rating);
+            _ratingService.create(restaurantId, userId, dishId, ratingRequest.Rating);
+            return Ok("You Rated "+ ratingRequest.Rating);
         }
     }
 }

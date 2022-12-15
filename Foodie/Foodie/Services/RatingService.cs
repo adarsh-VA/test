@@ -38,7 +38,8 @@ namespace Foodie.Services
             if (restaurantId == 0) throw new ArgumentException("Restaurant Id should not be Zero");
             else if (userId == 0) throw new ArgumentException("User Id should not be Zero");
             else if (dishId == 0) throw new ArgumentException("Dish Id should not be Zero");
-            
+            else if (rating <= 0 || rating > 5) throw new ArgumentException("Rating should be in 1 to 5");
+
             var restaurant = _restaurantRepository.GetById(restaurantId);
             if( restaurant == null ) { throw new KeyNotFoundException("Restaurant Not Found!"); }
 
@@ -46,6 +47,7 @@ namespace Foodie.Services
             if( user == null ) { throw new KeyNotFoundException("User Not Found!"); }
 
             if (_dbHelper.GetDishIdsByRestaurant(restaurantId).Contains(dishId) != true) { throw new KeyNotFoundException("Dish Not Found!"); }
+            if(_dbHelper.GetDishRatingOfUser(userId, restaurantId,dishId) != 0) { throw new ArgumentException("You Have Already Rated!"); }
 
             _ratingRepository.Create(restaurantId, userId, dishId, rating);
         }
