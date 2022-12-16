@@ -33,9 +33,8 @@ namespace Foodie.Tests.MockResources
         {
             dishMockRepo.Setup(x => x.Create(It.IsAny<Dish>())).Returns((Dish dish) =>
             {
-
                 dish.Id = _dishes.Max(d => d.Id) + 1;
-                _dishes.Add(dish);
+
                 return dish.Id;
             });
         }

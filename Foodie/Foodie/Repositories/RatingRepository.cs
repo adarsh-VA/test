@@ -43,7 +43,6 @@ namespace Foodie.Repositories
                            		FROM Users_Restaurants_Dishes
                            		WHERE DishId = D.Id
                            			AND RestaurantId = @RestaurantId
-                           		GROUP BY DishId
                            		) AS AvgRating
                            FROM Dishes D
                            JOIN Restaurants_Dishes RD ON RD.DishId = D.Id

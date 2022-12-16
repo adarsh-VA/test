@@ -119,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 9
  testRunner.And("response data must look like \'[{\"id\":1,\"name\":\"Samosa\"},{\"id\":2,\"name\":\"Curd\"},{\"" +
-                        "id\":3,\"name\":\"Chicken\"},{\"id\":4,\"name\":\"Curd\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "id\":3,\"name\":\"Chicken\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
