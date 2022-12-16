@@ -83,14 +83,14 @@ namespace Foodie.Tests.Features
         [Xunit.SkippableTheoryAttribute(DisplayName="Get Ratings")]
         [Xunit.TraitAttribute("FeatureTitle", "Rating Resource")]
         [Xunit.TraitAttribute("Description", "Get Ratings")]
-        [Xunit.InlineDataAttribute("/restaurants/1/users/1/ratings", "200", "[{\"id\":1,\"name\":\"Veg Biryani\",\"MyRating\":4.0,\"AvgRating\":4.0},{\"id\":3,\"name\":\"Rot" +
-            "i\",\"MyRating\":3.0,\"AvgRating\":3.0}]", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/1/users/1/ratings", "200", "[{\"id\":1,\"name\":\"Samosa\",\"myRating\":4,\"avgRating\":4},{\"id\":2,\"name\":\"Curd\",\"myRat" +
+            "ing\":4,\"avgRating\":3.5}]", new string[] {
                 "ValidData"})]
         [Xunit.InlineDataAttribute("/restaurants/19/users/1/ratings", "404", "Restaurant Not Found!", new string[] {
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/1/users/15/ratings", "404", "User Not Found!", new string[] {
                 "InvalidData"})]
-        [Xunit.InlineDataAttribute("/restaurants/0/users/1/ratings", "400", "Id should not be Zero", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/0/users/1/ratings", "400", "Restaurant Id should not be Zero", new string[] {
                 "InvalidData"})]
         public virtual void GetRatings(string request, string statusCode, string responseBody, string[] exampleTags)
         {
@@ -139,11 +139,11 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.SkippableTheoryAttribute(DisplayName="Create Rating")]
         [Xunit.TraitAttribute("FeatureTitle", "Rating Resource")]
         [Xunit.TraitAttribute("Description", "Create Rating")]
-        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "You Rated 5.0", "201", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/2/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "You Rated 5", "201", new string[] {
                 "ValidData"})]
-        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\":6.0}", "Rating Should be in 1 to 5", "400", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\":6.0}", "Rating should be in 1 to 5", "400", new string[] {
                 "InvalidData"})]
-        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\": 0}", "Rating Should Not be 0", "400", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/1/ratings", "{\"Rating\": 0}", "Rating should be in 1 to 5", "400", new string[] {
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/10/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "Restaurant Not Found!", "404", new string[] {
                 "InvalidData"})]
@@ -151,7 +151,7 @@ this.ScenarioInitialize(scenarioInfo);
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/restaurants/1/Users/1/Dishes/16/ratings", "{\"Rating\":5.0}", "Dish Not Found!", "404", new string[] {
                 "InvalidData"})]
-        [Xunit.InlineDataAttribute("/restaurants/0/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "Id should not be Zero", "400", new string[] {
+        [Xunit.InlineDataAttribute("/restaurants/0/Users/1/Dishes/1/ratings", "{\"Rating\":5.0}", "Restaurant Id should not be Zero", "400", new string[] {
                 "InvalidData"})]
         public virtual void CreateRating(string request, string requestBody, string responseBody, string responseCode, string[] exampleTags)
         {

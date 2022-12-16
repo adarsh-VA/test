@@ -6,7 +6,7 @@ Scenario: Get All Dishes
 	Given I am a client
 	When I make GET Request '/dishes'
 	Then response code must be '200'
-	And response data must look like '[{"id":1,"name":"Samosa"},{"id":2,"name":"Curd"},{"id":3,"name":"Chicken"}]'
+	And response data must look like '[{"id":1,"name":"Samosa"},{"id":2,"name":"Curd"},{"id":3,"name":"Chicken"},{"id":4,"name":"Curd"}]'
 
 Scenario Outline: Get Dish By Id
 	Given I am a client
@@ -21,7 +21,6 @@ Scenario Outline: Get Dish By Id
 	Examples: 
 	| request    | statusCode | responseBody                                     |
 	| /dishes/24 | 404        | Dish Not Found!                                  |
-	| /dishes/6y | 400        | {  "id": [    "The value '6y' is not valid."  ]} |
 	| /dishes/0  | 400        | Id should not be zero                            |
 
 Scenario Outline: Create Dish

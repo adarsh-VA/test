@@ -119,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 9
  testRunner.And("response data must look like \'[{\"id\":1,\"name\":\"Samosa\"},{\"id\":2,\"name\":\"Curd\"},{\"" +
-                        "id\":3,\"name\":\"Chicken\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "id\":3,\"name\":\"Chicken\"},{\"id\":4,\"name\":\"Curd\"}]\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -131,8 +131,6 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.InlineDataAttribute("/dishes/1", "200", "{\"id\":1,\"name\":\"Samosa\"}", new string[] {
                 "ValidData"})]
         [Xunit.InlineDataAttribute("/dishes/24", "404", "Dish Not Found!", new string[] {
-                "InvalidData"})]
-        [Xunit.InlineDataAttribute("/dishes/6y", "400", "{  \"id\": [    \"The value \'6y\' is not valid.\"  ]}", new string[] {
                 "InvalidData"})]
         [Xunit.InlineDataAttribute("/dishes/0", "400", "Id should not be zero", new string[] {
                 "InvalidData"})]
@@ -196,7 +194,7 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("responseBody", responseBody);
             argumentsOfScenario.Add("responseCode", responseCode);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Dish", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 27
+#line 26
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -216,16 +214,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 28
+#line 27
  testRunner.Given("I am a client", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 29
+#line 28
  testRunner.When(string.Format("I make POST Request \'{0}\' with following data \'{1}\'", request, requestBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 29
  testRunner.Then(string.Format("response code must be \'{0}\'", responseCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
+#line 30
  testRunner.And(string.Format("response data must look like \'{0}\'", responseBody), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

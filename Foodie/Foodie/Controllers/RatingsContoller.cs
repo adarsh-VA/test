@@ -25,7 +25,7 @@ namespace Foodie.Controllers
         public IActionResult CreateUserDishRatings([FromRoute] int restaurantId, [FromRoute] int userId, [FromRoute]int dishId, [FromBody] RatingRequest ratingRequest)
         {
             _ratingService.create(restaurantId, userId, dishId, ratingRequest.Rating);
-            return Ok("You Rated "+ ratingRequest.Rating);
+            return Created("~{restaurantId}/users/{userId}/ratings","You Rated "+ ratingRequest.Rating);
         }
     }
 }

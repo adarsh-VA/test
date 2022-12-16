@@ -22,6 +22,7 @@ namespace Foodie.Services
 
         public List<UserRatingResponse> GetAllUserRatings(int userId,int restaurantId)
         {
+            if (restaurantId == 0) throw new ArgumentException("Restaurant Id should not be Zero");
             var restaurant = _restaurantRepository.GetById(restaurantId);
             if (restaurant == null) { throw new KeyNotFoundException("Restaurant Not Found!"); }
 

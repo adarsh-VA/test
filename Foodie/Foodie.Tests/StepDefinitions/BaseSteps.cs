@@ -48,11 +48,7 @@ namespace Foodie.Tests.StepDefinitions
         {
             var responseData = await Response.Content.ReadAsStringAsync();
             string response = responseData;
-            if (responseData.Contains("errors"))
-            {
-                var responseJson = JObject.Parse(responseData);
-                response = responseJson["errors"].ToString().Replace("\r\n", "");
-            }
+            
             Assert.Equal(expected, response);
         }
 
