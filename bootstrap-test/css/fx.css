@@ -1,17 +1,19 @@
 #body-c{
-     background-color: rgba(61, 56, 83, 0.5); 
+    background-color: rgba(33, 47, 60 ,0.5); 
     background-image: url("../imgs/456.jpg");
     background-size: cover;
     background-blend-mode:soft-light ;  
     background-attachment: fixed;  
-    background-position: center;
+    background-position: center;    
 }
 
 #navbar-c{
     position: sticky;
     top:0;
     backdrop-filter: blur(10px);
-    background-color :rgba(236, 236, 236, 0.536);
+    /* background-color :rgba(249, 255, 249, 0.3); */
+    background-color: rgba(247, 247, 247, 0.5);
+    box-shadow: 0 3px 6px rgb(77, 83, 87);
     z-index: 2;
 }
 
@@ -21,8 +23,9 @@
 }
 
 #navlist-c li a:hover{
-    background-color: #1434A4;
-    color: whitesmoke;
+    border-left: #212F3C solid 3px;
+    border-right: #212F3C solid 3px ;
+    font-weight: bold;
     transition: all 0.3s;
 }
 
@@ -35,16 +38,16 @@
 }
 
 #add-movie-c{
-    background-color: #1434A4;
+    background-color: #212F3C ;
     color: rgb(220, 219, 219);
-    border-radius: 10px;
-    box-shadow: 0 0 2px 1px #1434A4;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px #212F3C ;
 }
 
 #add-movie-c:hover{
     backdrop-filter: blur(10px);
     background-color: transparent;
-    color: #1434A4;
+    color: #212F3C ;
 }
 
 
@@ -54,7 +57,7 @@
 .card:hover{
     transform: scale(1.05);
     transition: transform 0.3s;
-    box-shadow: 0 0px 10px 2px #1434A4 ;
+    box-shadow: 0 0px 10px 2px #212F3C;
 }
 
 main{
@@ -63,6 +66,10 @@ main{
 
 body.modal-open #content-body{
     filter: blur(10px);
+}
+
+footer{
+    box-shadow: 3px 0px 6px rgb(77, 83, 87);
 }
 
 /* @media only screen and (max-width:350px) {
