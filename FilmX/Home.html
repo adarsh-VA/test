@@ -5,8 +5,110 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmX</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.61.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="body-items">
+        <nav class="navbar navbar-expand-sm navbar-light" id="top-navigation">
+            <a href="Home.html" class="navbar-brand"><img src="imgs/nav-logo.png" alt="" height="30px" width="100px"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#toggleMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggleMenu">   
+                <ul class="navbar-nav ml-auto text-center"  id="top-navigation-list">
+                  <li class="nav-item ">
+                    <a class="nav-link" href="#">Actors</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Producers</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+
+        
+        <div class="container-fluid mt-4 d-flex justify-content-center">
+            <a href="add.html" class="btn custom-button">Add Movie</a>
+        </div>
+
+        <!-- Container for movie cards -->
+        <div class="container-fluid mt-4">
+            <div class="row justify-content-center ml-lg-5 mr-lg-5" rel="js-card-container">
+            </div>
+        </div>
+
+        <footer class="page-footer font-small blue mt-3">
     
+            <!-- Copyright -->
+            <div class="footer-copyright text-center p-2">
+                <img src="imgs/logo.png" alt="" width="300px" height="103px" class="p-3">
+                <h4>FilmX Developers <span>&copy;</span>2022</h4>
+            </div>
+            <!-- Copyright -->
+          
+        </footer>
+
+    </div>
+
+    <!-- Movie Modal -->
+    <div class="modal fade" id="movie-modal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Movie Details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 rel="js-movie-modal-title" class="text-capitalize"></h3>
+                    <p>Release : 2019</p>
+                    <p>genre : horror, thriller</p>
+                    <p>Actors : abc,abc</p>
+                    <p>Producer : Steven</p>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi quae maiores exercitationem, 4
+                        labore sit blanditiis ad totam ipsam modi voluptatem ab repellat omnis ipsa atque incidunt 
+                        quaerat quasi rerum vero!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var images = ["avengers","black-widow","dune","godzilla","iron-man","john-wick","joker","jurassic-park","lord-of-the-rings","mad-max","star-war","suicide-squad","terminator","warcraft"];
+
+        for(var image of images){
+            $("[rel='js-card-container']").append(
+            `<div class="col-xl-3 col-lg-4 col-md-5 p-3">
+                <div class="card p-2 m-auto" style="width:280px;">
+                    <img class="card-img-top" src="imgs/${image}.jpg" alt="Card image" height="300px">
+                    <div class="card-body p-2">
+                        <h4 class="card-title text-capitalize">${image}</h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet and i go consectetur, adipisicing elit. Dignios, rerum error.</p>
+                        <a href="" class="text-decoration-none"  style="color: #1434A4;" data-toggle="modal" data-target="#movie-modal" rel="js-movie-modal-explore">Explore &#8594</a>
+                        <div class="d-inline-block float-right">
+                            <a href="" style="color: #1434A4;"><i class="fa-regular fa-pen-to-square"></i></a>
+                            <a href="" style="color: red;"><i class="fa-regular fa-trash-can"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+            );
+        }
+
+        $(document).on('click',"[rel='js-movie-modal-explore']",(event)=>{
+            var movie_name = event.currentTarget.parentElement.getElementsByClassName('card-title')[0].textContent;
+            $("[rel='js-movie-modal-title']").text(movie_name);
+            
+            
+        })
+    </script>
 </body>
 </html>

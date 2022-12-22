@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Movie</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery-3.61.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="js/validate-forms.js"></script>
+</head>
+<body>
+    <div id="body-items">
+        <nav class="navbar navbar-expand-sm navbar-light" id="top-navigation">
+            <a href="Home.html" class="navbar-brand"><img src="imgs/nav-logo.png" alt="" height="30px" width="100px"></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#toggleMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggleMenu">   
+                <ul class="navbar-nav ml-auto text-center"  id="top-navigation-list">
+                  <li class="nav-item ">
+                    <a class="nav-link" href="#">Actors</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Producers</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid mt-4 d-flex justify-content-center">
+            <a href="Home.html" class="btn custom-button">Go Back</a>
+        </div>
+
+        <div class="container" id="movie-form">
+            <h2 class="text-center">Enter Movie Details</h2>
+            <hr>
+            <form action="" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="movie-name">Movie Name</label>
+                    <input type="text" id="movie-name" class="form-control" required placeholder="enter movie name">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="year-of-release">Year Of Release</label>
+                    <input type="number" id="year-of-release" class="form-control" placeholder="only year" required>
+                </div>
+                <div class="form-group">
+                    <label for="actors">Actors</label>
+                    <div class="row">
+                        <div class="col-12 col-md-9 col-lg-10 mb-3 mb-md-0">
+                            <select name="" id="actors" class="form-control" required>
+                                <option selected value="">Choose Actor...</option>
+                                <option value="a1">Actor 1</option>
+                                <option value="a2">Actor 2</option>
+                                <option value="a3">Actor 3</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3 col-lg-2">
+                            <a href="" class="btn custom-button w-100" data-toggle="modal" data-target="#actor-modal">Add Actor</a>
+                        </div> 
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="producers">Producers</label>
+                    <div class="row">
+                        <div class="col-12 col-md-9 col-lg-10 mb-3 mb-md-0">
+                            <select name="" id="producers" class="form-control" required>
+                                <option selected value="">Choose Producer...</option>
+                                <option value="p1">Producer 1</option>
+                                <option value="p2">Producer 2</option>
+                                <option value="p3">Producer 3</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-3 col-lg-2">
+                            <a href="" class="btn custom-button w-100" data-toggle="modal" data-target="#producer-modal">Add Producer</a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="genres">Genres</label>
+                    <select name="" id="genres" class="form-control" required>
+                        <option selected value="">Choose Genre...</option>
+                        <option value="g1">Genre 1</option>x
+                        <option value="g2">Genre 2</option>
+                        <option value="g3">Genre 3</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="plot">Plot</label>
+                    <textarea name="" id="plot" cols="30" rows="3" class="form-control" placeholder="Some text.."></textarea>
+                </div>
+    
+                <div class="from-group">
+                    <label for="poster">Poster</label>
+                    <input type="file" name="" id="poster" class="form-control-file">
+                </div>
+    
+                <div class="row justify-content-center">
+                    <input type="submit" value="Submit" class="btn btn-success mt-3 col-12 col-md-auto" onclick="">
+                </div>
+            </form>
+        </div>
+
+        <footer class="page-footer font-small blue mt-3">
+    
+            <!-- Copyright -->
+            <div class="footer-copyright text-center p-2">
+                <img src="imgs/logo.png" alt="" width="300px" height="103px" class="p-3">
+                <h4>FilmX Developers <span>&copy;</span>2022</h4>
+            </div>
+            <!-- Copyright -->
+          
+        </footer>
+
+    </div>
+
+    <!-- Actor Modal -->
+    <div class="modal fade" id="actor-modal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-center">Enter Actor Details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="actor-form" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="movie-name">Name</label>
+                            <input type="text" id="movie-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Gender</label>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a1" class="mr-1" value="Male" required>Male
+                                <label for="a1" class="form-check-label">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a2" class="mr-1" value="FeMale" required>Female
+                                <label for="a2" class="form-check-label">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a2" class="mr-1" value="FeMale" required>Other
+                                <label for="a2" class="form-check-label">
+                                </label>
+                                <div class="invalid-feedback">Choose Any Gender</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">
+                            <label for="genres">Date Of Birth</label>
+                            <input type="date" name="" id="" class="form-control" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="plot">Bio</label>
+                            <textarea name="" id="plot" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" value="close" class="btn btn-danger" data-dismiss="modal">
+                    <input type="submit" value="Submit" class="btn btn-success" form="actor-form">
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- Producer Modal -->
+     <div class="modal fade" id="producer-modal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="text-center">Enter Producer Details</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="producer-form" class="needs-validation" novalidate>
+                        <div class="form-group">
+                            <label for="movie-name">Name</label>
+                            <input type="text" id="movie-name" class="form-control" required> 
+                        </div>
+                        <div class="form-group">
+                            <label for="">Gender</label>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a1" class="mr-1" value="Male" required>Male
+                                <label for="a1" class="form-check-label">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a2" class="mr-1" value="FeMale" required>Female
+                                <label for="a2" class="form-check-label">
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="gender" id="a2" class="mr-1" value="FeMale" required>Other
+                                <label for="a2" class="form-check-label">
+                                </label>
+                                <div class="invalid-feedback">Choose Any Gender</div>
+                            </div>
+                        </div>
+  
+                        <div class="form-group">
+                            <label for="genres">Date Of Birth</label>
+                            <input type="date" name="" id="" class="form-control" required>
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="plot">Bio</label>
+                            <textarea name="" id="plot" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" value="close" class="btn btn-danger" data-dismiss="modal">
+                    <input type="submit" value="Submit" class="btn btn-success" form="producer-form">
+                </div>
+            </div>
+        </div>
+     </div>
+</body>
+</html>

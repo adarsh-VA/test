@@ -1,0 +1,75 @@
+body{
+    background-color: rgba(33, 47, 60 ,0.5); 
+    background-image: url("../imgs/background-image.jpg");
+    background-size: cover;
+    background-blend-mode:soft-light ;  
+    background-attachment: fixed;  
+    background-position: center;    
+}
+
+#top-navigation{
+    position: sticky;
+    top:0;
+    backdrop-filter: blur(10px);
+    /* background-color :rgba(249, 255, 249, 0.3); */
+    background-color: rgba(247, 247, 247, 0.5);
+    box-shadow: 0 3px 6px rgb(77, 83, 87);
+    z-index: 2;
+}
+
+#top-navigation-list li a{
+    color: black;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#top-navigation-list li a:hover{
+    border-left: #212F3C solid 3px;
+    border-right: #212F3C solid 3px ;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.custom-button{
+    background-color: #212F3C;
+    color: rgb(220, 219, 219);
+    border-radius: 5px;
+    box-shadow: 0 0 2px 1px #212F3C !important;
+}
+
+.custom-button:hover{
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+    color: #212F3C ;
+}
+
+.card{
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.726);
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s;
+    box-shadow: 0 0px 10px 2px #212F3C;
+}
+
+body.modal-open #body-items{
+    filter: blur(10px);
+}
+
+#movie-form{
+    backdrop-filter: blur(10px);
+    margin: 20px auto 20px auto;
+    width: 85%;
+    background-color: rgba(255, 255, 255, 0.603);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0px 0px 10px rgb(77, 83, 87);
+}
+
+footer{
+    backdrop-filter: blur(5px);
+    box-shadow: 3px 0px 6px rgb(77, 83, 87);
+    background-color: rgba(255, 255, 255, 0.6);
+}
