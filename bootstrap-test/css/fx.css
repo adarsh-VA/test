@@ -61,6 +61,10 @@ main{
     margin:auto 150px;
 }
 
+body.modal-open #content-body{
+    filter: blur(10px);
+}
+
 /* @media only screen and (max-width:350px) {
     #card-container-c{
         margin: 0;

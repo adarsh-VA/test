@@ -50,7 +50,7 @@ namespace Foodie.Helper
                                     		FROM Users_Restaurants_Dishes
                                     		WHERE DishId = D.Id
                                     			AND RestaurantId = @RestaurantId
-                                    		GROUP BY DishId
+                                    		GROUP BY DishId3
                                     		) AS AvgRating
                                     FROM Dishes D
                                     JOIN Restaurants_Dishes RD ON RD.DishId = D.Id
