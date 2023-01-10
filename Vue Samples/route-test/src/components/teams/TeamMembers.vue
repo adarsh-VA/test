@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     loadMemberData(teamId){
-      var team = this.teams.find(t=>t.id==teamId);
+      var team = this.teams.find(t=>t.id==teamId) || "default";
       
       const selectedMembers = [];
 
@@ -53,6 +53,7 @@ export default {
 </script>
 
 <style scoped>
+
 section {
   margin: 2rem auto;
   max-width: 40rem;
@@ -70,4 +71,5 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 </style>
