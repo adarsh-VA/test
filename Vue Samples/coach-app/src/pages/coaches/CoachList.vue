@@ -3,7 +3,7 @@
     <div>
         <base-card>
         <div class="controls">
-            <base-button mode="outline">Refresh</base-button>
+            <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
             <base-button to="/register" link>Register as Coach</base-button>
         </div>
         <ul v-if="hasCoaches">
@@ -54,9 +54,15 @@ export default{
             });
         }
     },
+    created(){
+        this.loadCoaches();
+    },
     methods:{
         setFilters(updatedFilters){
             this.filters=updatedFilters;
+        },
+        async loadCoaches(){
+            await this.$store.dispatch('coach/loadCoaches')
         }
     }
 }

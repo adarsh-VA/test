@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default{
     namespaced:true,
     state(){
@@ -21,8 +23,70 @@ export default{
                     'I am Julie and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
                   hourlyRate: 30
                 }
-            ]
+            ],
+            lastFetch:null
         }
+    },
+    mutations:{
+      registerCoach(state,payload){
+        state.coaches.push(payload);
+      },
+      setCoaches(state,payload){
+        state.coaches=payload
+      },
+      setTimestamp(state,payload){
+        state.lastFetch = payload;
+      }
+    },
+    actions:{
+      async registerCoach(context,data){
+        const coachId = context.rootGetters.userId;
+        const coachData={
+          firstName:data.first,
+          lastName:data.last,
+          description:data.desc,
+          hourlyRate:data.rate,
+          areas:data.areas
+        };
+
+        const response = await axios.put(`https://vue-test-500ff-default-rtdb.firebaseio.com/coaches/${coachId}.json`,coachData);
+
+        if(!response.ok){
+          //error
+        }
+        context.commit('registerCoach',{...coachData , id:coachId});
+      },
+      async loadCoaches(context){
+        console.log(context.getters.shouldUpdate);
+        if(!context.getters.shouldUpdate && context.state.lastFetch !=null){
+          console.log('yoo');
+          return;
+        }
+        console.log('coach list created');
+        const response = await axios.get(`https://vue-test-500ff-default-rtdb.firebaseio.com/coaches.json`);
+
+        const responseData = await response.data;
+
+        if(!response.ok){
+          //error
+        }
+
+        const coaches=[];
+
+        for (const key in responseData){
+          const coach={
+            id:key,
+            firstName:responseData[key].firstName,
+            lastName:responseData[key].lastName,
+            description:responseData[key].description,
+            hourlyRate:responseData[key].hourlyRate,
+            areas:responseData[key].areas
+          };
+          coaches.push(coach);
+        }
+        context.commit('setCoaches',coaches);
+        context.commit('setTimestamp',new Date().getTime());
+      }
     },
     getters:{
         coaches(state){
@@ -30,6 +94,19 @@ export default{
         },
         hasCoaches(state){
             return state.coaches && state.coaches.length > 0;
+        },
+        shouldUpdate(state){
+          console.log("updateddddd");
+          const lastTime = state.lastFetch;
+          if(!lastTime){
+            console.log('lastFetch is null');
+            return true;
+          }
+          console.log("entered update");
+          const currentTimeStamp = new Date().getTime();
+          const diff = (currentTimeStamp-lastTime)/1000;
+          console.log(diff+' '+currentTimeStamp+' '+lastTime);
+          return diff>5;
         }
     }
 }
