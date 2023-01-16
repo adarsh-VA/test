@@ -57,11 +57,11 @@ export default{
         context.commit('registerCoach',{...coachData , id:coachId});
       },
       async loadCoaches(context){
-        console.log(context.getters.shouldUpdate);
-        if(!context.getters.shouldUpdate && context.state.lastFetch !=null){
-          console.log('yoo');
+        const currentTime = new Date().getTime();
+        if(!((currentTime - context.state.lastFetch)/1000 >60) && context.state.lastFetch !=null){
           return;
         }
+        
         console.log('coach list created');
         const response = await axios.get(`https://vue-test-500ff-default-rtdb.firebaseio.com/coaches.json`);
 
@@ -94,19 +94,6 @@ export default{
         },
         hasCoaches(state){
             return state.coaches && state.coaches.length > 0;
-        },
-        shouldUpdate(state){
-          console.log("updateddddd");
-          const lastTime = state.lastFetch;
-          if(!lastTime){
-            console.log('lastFetch is null');
-            return true;
-          }
-          console.log("entered update");
-          const currentTimeStamp = new Date().getTime();
-          const diff = (currentTimeStamp-lastTime)/1000;
-          console.log(diff+' '+currentTimeStamp+' '+lastTime);
-          return diff>5;
         }
     }
 }

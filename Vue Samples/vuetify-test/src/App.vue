@@ -45,7 +45,7 @@
 
 <template>
   <v-app>
-    <the-navbar></the-navbar>
+    <the-navbar class="mb-4"></the-navbar>
     <router-view></router-view>
   </v-app>
 </template>
