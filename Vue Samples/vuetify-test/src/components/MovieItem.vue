@@ -1,6 +1,6 @@
 <template>
     <v-card width="280px" class="pa-2 mx-auto card">
-        <img :src="require(`@/assets/imgs/avengers.jpg`)" alt="Card image" height="300px" width="100%">
+        <img :src="poster" alt="Card image" height="300px" width="100%">
         <v-card-title class="pa-2">
           {{ name }}
         </v-card-title>
@@ -21,23 +21,25 @@
           
             <v-card class="pa-2">
               
-              <v-img :src="require(`@/assets/imgs/avengers.jpg`)" height="300px" contain class="dailog-img mb-3"></v-img>
+              <v-img :src="poster" height="300px" contain class="dailog-img mb-3"></v-img>
               <hr>
               <v-card-title>
                 {{ name }}
-              </v-card-title>
-
-              <v-card-text class="pb-0">
-                <p><b>Actors:</b> {{ loadActors }}</p> 
+              </v-card-title> 
+              <v-card-text class="pb-0 black--text">
+                <p><b>Year Of Release: </b> {{ YOR }}</p> 
               </v-card-text>
-              <v-card-text class="pb-0">
-                <p><b>Producer:</b> {{ producer.name }}</p> 
+              <v-card-text class="pb-0 black--text">
+                <p><b>Actors: </b> {{ loadActors }}</p> 
               </v-card-text>
-              <v-card-text class="pb-0">
-                <p><b>Genre:</b> {{ loadGenres }}</p> 
+              <v-card-text class="pb-0 black--text">
+                <p><b>Producer: </b> {{ producer.name }}</p> 
               </v-card-text>
-              <v-card-text class="pb-0">
-                <p><b>Plot:</b>{{ plot }}</p> 
+              <v-card-text class="pb-0 black--text">
+                <p><b>Genre: </b> {{ loadGenres }}</p> 
+              </v-card-text>
+              <v-card-text class="pb-0 black--text">
+                <p><b>Plot: </b>{{ plot }}</p> 
               </v-card-text>
             
               <v-divider></v-divider>
@@ -65,7 +67,7 @@
 
 <script>
 export default{
-    props:['id','name','actors','genres','plot','producer','YOR'],
+    props:['id','name','actors','genres','plot','producer','YOR','poster'],
     data(){
       return{
         dialog:false,

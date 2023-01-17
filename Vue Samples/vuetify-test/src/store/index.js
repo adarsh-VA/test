@@ -1,24 +1,15 @@
-import axios from 'axios';
+import moviesModule from './modules/movies.js';
+import producersModule from './modules/producers.js';
+import genresModule from './modules/genres.js';
+import actorsModule from './modules/actors.js';
+
 
 const storeConfig={
-  state: {
-    movies:[]
-  },
-  mutations: {
-    setMovies(state,payload){
-        state.movies=payload;
-    }
-  },
-  actions:{
-    async loadMovies(context){
-        const response = await axios.get('https://localhost:7156/movies');
-        context.state.movies=response.data;
-    }
-  },
-  getters:{
-    allMovies(state){
-        return state.movies;
-    }
+  modules:{
+    movies:moviesModule,
+    actors:actorsModule,
+    genres:genresModule,
+    producers:producersModule
   }
 }
 

@@ -11,7 +11,8 @@
             :actors="movie.actors" 
             :genres="movie.genres"
             :producer="movie.producer"
-            :YOR="movie.yearOfRelease"></movie-item>
+            :YOR="movie.yearOfRelease"
+            :poster="movie.coverImage"></movie-item>
         </v-col>
       </v-row>
 
@@ -32,11 +33,11 @@ export default {
   },
   computed:{
     movies(){
-      return this.$store.getters['allMovies'];
+      return this.$store.getters['movies/allMovies'];
     }
   },
   created(){
-    this.$store.dispatch('loadMovies');
+    this.$store.dispatch('movies/loadMovies');
   }
 
 }
