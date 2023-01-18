@@ -61,7 +61,7 @@
             </v-row>
             
             <v-row
-            align="center">
+            align="center" class="mb-2">
               <v-col cols="12" lg="9" md="9" sm="6" >
                 <v-select
                   v-model="Genres"
@@ -88,7 +88,18 @@
               :rules="[v => !!v || 'Movie Plot is required']"
               v-model="plot"
             ></v-textarea>
+
+            <v-row align="center" style="border: 1px solid grey;" class="ma-1 rounded-lg" justify="center" v-if="type=='edit'">
+              <v-col lg="6" sm="12" cols="12">
+                <v-img :src="posterLink" height="200" contain></v-img>
+              </v-col>
+              <v-col lg="6" sm="12" cols="12" class="text-center">
+                <v-btn @click="upload=!upload" >{{ upload?'No Upload':'Upload Image' }}</v-btn>
+              </v-col>
+            </v-row>
+
             <v-file-input
+              v-if="upload"
               accept="image/*"
               label="File input"
               :rules="[v => !!v || 'Select any Movie Poster']"
@@ -123,9 +134,11 @@
         PersonForm,
     },
     emits:['movie-data'],
-    props:['cardTitle'],
+    props:['cardTitle','movieObject'],
     data(){
         return {
+            upload:true,
+            type:null,
             formLabel:'',
             dialog:false,
           valid: false,
@@ -147,7 +160,7 @@
           genres: [],
           plot:null,
           poster:null,
-          personFormData:null
+          posterLink:null,
         }
     },
     computed:{
@@ -169,6 +182,14 @@
         return this.formLabel;
       }
     },
+    watch:{
+      upload(value){
+        if(value)
+          this.poster=null;
+        else
+          this.poster=this.posterLink;
+      }
+    },
 
     methods: {
         check(){
@@ -180,28 +201,37 @@
                 && this.Producer !=null
                 && this.plot !=null
                 && this.Genres !=null
+                && this.poster !=null
             ){
                 this.formValid = true;
             }
+            
             console.log(this.formValid);
-        },
+          },
         submit () {
             this.$refs.form.validate()
             this.check();
             if(this.formValid){
-                const formData = new FormData();
+              var formData = new FormData();
+              if(this.upload){
+                
                 formData.append('file', this.poster);
-                var movie ={
-                    name:this.movieName,
-                    yearOfRelease:this.YOR,
-                    plot:this.plot,
-                    actorIds:this.Actors.toString(),
-                    genreIds:this.Genres.toString(),
-                    producerId:this.Producer.toString(),
-                    coverImage:formData
-                }
-                console.log(movie);
-                this.$emit('movie-data',movie);
+              }
+              else{
+                formData=this.posterLink;
+              }
+
+              var movie ={
+                  name:this.movieName,
+                  yearOfRelease:this.YOR,
+                  plot:this.plot,
+                  actorIds:this.Actors.toString(),
+                  genreIds:this.Genres.toString(),
+                  producerId:this.Producer.toString(),
+                  coverImage:formData
+              }
+              console.log(movie);
+              this.$emit('movie-data',movie);
             }
         },
         async loadActors(){
@@ -248,12 +278,46 @@
                 await this.$store.dispatch('genres/addGenre',data)
                 this.loadGenres();
             }
+        },
+        cleanForm(){
+          this.upload=true;
+          this.movieName=null;
+          this.YOR=null;
+          this.posterLink=null;
+          this.poster=null;
+          this.Actors=null;
+          this.Producer=null;
+          this.Genres=null;
+          this.type=null;
         }
     },
     created(){
-        this.loadActors();
-        this.loadProducers();
-        this.loadGenres();
+      this.cleanForm();
+
+      this.loadActors();
+      this.loadProducers();
+      this.loadGenres();
+      if(this.cardTitle.includes('Edit')){
+        this.upload=false;
+        this.type='edit';
+        console.log("eueu Editing");
+        this.movieName=this.movieObject.name;
+        this.YOR=this.movieObject.yearOfRelease;
+        
+        var actors =[]
+        this.movieObject.actors.forEach(x => {
+            actors.push(x.id);
+        });
+        this.Actors=actors;
+        this.Producer = this.movieObject.producer.id
+        var genres =[]
+        this.movieObject.genres.forEach(x => {
+            genres.push(x.id);
+        });
+        this.Genres=genres;
+        this.plot = this.movieObject.plot;
+        this.posterLink =  this.movieObject.coverImage;
+      }
     }
   }
 </script>

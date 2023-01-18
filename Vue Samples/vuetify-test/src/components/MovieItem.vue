@@ -58,8 +58,11 @@
           </v-dialog>
           <v-spacer></v-spacer>
           <div>
-              <a href="" class="mx-1"><i class="fa-regular fa-pen-to-square"></i></a>
-              <a href="" class="red--text"><i class="fa-regular fa-trash-can"></i></a>
+              <router-link :to="editLink"><i class="fa-regular fa-pen-to-square"></i></router-link>
+              <!-- <a class="mx-1"><i class="fa-regular fa-pen-to-square"></i></a> -->
+              <a class="red--text"><i class="fa-regular fa-trash-can" @click="deleteMovie"></i></a>
+              <!-- <v-btn text class="pa-0" min-width="0" @click="deleteMovie">
+                <i class="fa-regular fa-trash-can"></i></v-btn> -->
           </div>
         </v-card-actions>
       </v-card>
@@ -93,7 +96,23 @@ export default{
           }
           result += genres[len-1].name;
           return result;
+        },
+        editLink(){
+          return `movies/edit/${this.id}`;
         }
+    },
+    methods:{
+      deleteMovie(){
+        console.log("deleted");
+        const data = {
+          id:this.id,
+          poster:this.poster
+        }
+
+        var confirm = window.confirm("Are You Sure you want to delete?");
+        if(confirm)
+          this.$store.dispatch('movies/deleteMovie',data);
+      }
     }
 }
 </script>
